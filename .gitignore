@@ -1,2 +1,6 @@
 *.vcxproj*
 **/.vs
+*.sln
+stdafx.h
+stdafx.cpp
+targetver.h
