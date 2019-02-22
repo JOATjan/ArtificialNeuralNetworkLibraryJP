@@ -2,17 +2,14 @@
 #include "Sigmoid.h"
 
 
-Sigmoid::Sigmoid()
-{
+Sigmoid::Sigmoid() {
 }
 
-double Sigmoid::ComputeActivation(Vertex * vertex)
-{
+double Sigmoid::ComputeActivation(Vertex * vertex) {
 	double x = vertex->GetInput();
 	return 1 / (1 + exp(-x));
 }
 
 
-Sigmoid::~Sigmoid()
-{
+Sigmoid::~Sigmoid() {
 }

@@ -2,8 +2,7 @@
 #include "Edge.h"
 #include "Vertex.h"
 
-Edge::Edge(Vertex * In, Vertex * Out)
-{
+Edge::Edge(Vertex * In, Vertex * Out) {
 	InputVertex = nullptr;
 	OutputVertex = nullptr;
 	InputVertex = In;
@@ -12,27 +11,26 @@ Edge::Edge(Vertex * In, Vertex * Out)
 	Out->AddInputEdge(this);
 }
 
-void Edge::InitializeWeight(float val)
-{
+void Edge::InitializeWeight(float val) {
 	weight = val;
 }
 
-float Edge::GetWeight()
-{
+float Edge::GetWeight() {
 	return weight;
 }
 
-void Edge::SetWeight(float value)
-{
+void Edge::SetWeight(float value) {
 	weight = value;
 }
 
-Vertex* Edge::GetInputVertex()
-{
+Vertex* Edge::GetInputVertex() {
 	return InputVertex;
 }
 
+Vertex* Edge::GetOutputVertex() {
+	return OutputVertex;
+}
 
-Edge::~Edge()
-{
+
+Edge::~Edge() {
 }

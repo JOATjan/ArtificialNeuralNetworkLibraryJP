@@ -2,11 +2,9 @@
 #include "ErrorFunction.h"
 
 
-ErrorFunction::ErrorFunction()
-{
+ErrorFunction::ErrorFunction() {
 }
 
 
-ErrorFunction::~ErrorFunction()
-{
+ErrorFunction::~ErrorFunction() {
 }

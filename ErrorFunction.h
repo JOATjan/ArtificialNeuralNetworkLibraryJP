@@ -1,7 +1,6 @@
 #pragma once
 #include "Vertex.h"
-class ErrorFunction
-{
+class ErrorFunction {
 public:
 	ErrorFunction();
 	virtual float Error(Vertex * vertex) = 0;

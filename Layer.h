@@ -1,16 +1,17 @@
 #pragma once
-#include <list>
+#include <vector>
 #include "Vertex.h"
 #include "ActivationFunction.h"
-class Layer
-{
+class Layer {
 public:
 	Layer(int verNum, ActivationFunction * activationType);
 	void AddVertices(int verNum);
-	std::list<Vertex*> GetVertices();
+	ActivationFunction* GetActivationFunction();
+	std::vector<Vertex*> GetVertices();
 	~Layer();
-private:
-	std::list<Vertex*> layerVertices;
+protected:
+	std::vector<Vertex*> layerVertices;
+	float eror = 0.0;
 	ActivationFunction* activationFunction;
 };
 

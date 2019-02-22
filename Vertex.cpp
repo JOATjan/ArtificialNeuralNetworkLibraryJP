@@ -2,51 +2,49 @@
 #include "Vertex.h"
 #include "Edge.h"
 
-Vertex::Vertex()
-{
+Vertex::Vertex() {
 }
 
-std::list<Edge*> Vertex::GetInputEdges()
-{
+std::list<Edge*> Vertex::GetInputEdges() {
 	return InputEdges;
 }
 
 
-std::list<Edge*> Vertex::GetOutputEdges()
-{
-	return OutputEdges;
+std::list<Edge*> Vertex::GetOutputEdges() {
+return OutputEdges;
 }
 
-void Vertex::AddInputEdge(Edge * edge)
-{
+void Vertex::AddInputEdge(Edge * edge) {
 	InputEdges.push_back(edge);
 }
 
-void Vertex::AddOutputEdge(Edge * edge)
-{
+void Vertex::AddOutputEdge(Edge * edge) {
 	InputEdges.push_back(edge);
 }
 
-void Vertex::SetInput(float value)
-{
+void Vertex::SetInput(float value) {
 	Input = value;
 }
 
-void Vertex::SetActivation(float value)
-{
+void Vertex::SetActivation(float value) {
 	Activation = value;
 }
 
-float Vertex::GetInput()
-{
+void Vertex::SetError(float value) {
+	Error = value;
+}
+
+float Vertex::GetInput() {
 	return Input;
 }
 
-float Vertex::GetActivation()
-{
+float Vertex::GetError() {
+	return Error;
+}
+
+float Vertex::GetActivation() {
 	return Activation;
 }
 
-Vertex::~Vertex()
-{
+Vertex::~Vertex() {
 }

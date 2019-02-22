@@ -4,15 +4,11 @@
 #include "Edge.h"
 
 
-WeightedSum::WeightedSum()
-{
+WeightedSum::WeightedSum() {
 }
 
-float WeightedSum::ComputeInput(Vertex * vertex)
-{
-	int size = vertex->GetInputEdges().size();
-	float sum = 0;
-	float weight = 0.0;
+float WeightedSum::ComputeInput(Vertex * vertex) {
+	float sum = 0.0f;
 	for (auto const& i : vertex->GetInputEdges()) {
 		float weight = i->GetWeight();
 		float edgeInput = (i->GetInputVertex())->GetActivation();
@@ -21,7 +17,14 @@ float WeightedSum::ComputeInput(Vertex * vertex)
 	return sum;
 }
 
+float WeightedSum::ComputeError(Vertex * vertex) {
+	float sum = 0.0f;
+	for (auto const& i : vertex->GetOutputEdges()) {
+		float weight = i->GetWeight();
+		float edgeOutput = (i->GetOutputVertex())->GetError();
+		sum += weight * edgeOutput;
+	}
+}
 
-WeightedSum::~WeightedSum()
-{
+WeightedSum::~WeightedSum() {
 }

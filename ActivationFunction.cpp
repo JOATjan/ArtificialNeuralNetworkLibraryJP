@@ -2,11 +2,9 @@
 #include "ActivationFunction.h"
 
 
-ActivationFunction::ActivationFunction()
-{
+ActivationFunction::ActivationFunction() {
 }
 
 
-ActivationFunction::~ActivationFunction()
-{
+ActivationFunction::~ActivationFunction() {
 }
