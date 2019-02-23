@@ -5,8 +5,27 @@
 MSE::MSE() {
 }
 
-double MSE::Error(Vertex * vertex, double expectedValue) {
+double MSE::ComputeVertexError(Vertex * vertex, double expectedValue) {
 	return 1.0/2 * pow(expectedValue - vertex->GetActivation(),2);
+}
+
+double MSE::ComputeTotalError(Layer * layer, double expVals[], int size)
+{
+	double sum = 0.0;
+	for (int i = 0; i < size; i++) {
+		Vertex * vertex = layer->GetVertices()[i];
+		sum += ComputeVertexError(vertex,expVals[i]);
+	}
+	return sum;
+}
+
+double MSE::ComputeVertexErrorActivationDerivative(Layer * layer, double expVals[], int size)
+{
+	for (int i = 0; i < size; i++) {
+		Vertex * vertex = layer->GetVertices()[i];
+		float derivative = vertex->GetActivation() - expVals[i];
+		vertex->SetErrorActivationDeriv(derivative);
+	}
 }
 
 

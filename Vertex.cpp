@@ -30,16 +30,28 @@ void Vertex::SetActivation(float value) {
 	Activation = value;
 }
 
-void Vertex::SetError(float value) {
-	Error = value;
+void Vertex::SetErrorActivationDeriv(float value)
+{
+	ErrorActivationDeriv = value;
+}
+
+void Vertex::SetActivationInputDeriv(float value)
+{
+	ActivationInputDeriv = value;
+}
+
+float Vertex::GetErrorActivationDeriv()
+{
+	return ErrorActivationDeriv;
+}
+
+float Vertex::GetActivationInputDeriv()
+{
+	return ActivationInputDeriv;
 }
 
 float Vertex::GetInput() {
 	return Input;
-}
-
-float Vertex::GetError() {
-	return Error;
 }
 
 float Vertex::GetActivation() {

@@ -12,6 +12,13 @@ double TanH::ComputeActivation(Vertex * vertex)
 	return tanh(x);
 }
 
+void TanH::ComputeActivationInputDeriv(Vertex * vertex)
+{
+	float activationVal = vertex->GetActivation();
+	float derivative = 1 - pow(activationVal, 2);
+	vertex->SetActivationInputDeriv(derivative);
+}
+
 
 TanH::~TanH()
 {
