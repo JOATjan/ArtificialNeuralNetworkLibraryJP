@@ -9,6 +9,7 @@ public:
 	void AddLayer(Layer * layer);
 	void FeedForward(float inputValues[]);
 	void SetFirstLayerValues(float * inputValues);
+	void Backprophagation(float expectedValues[], float learningRate);
 	//void FeedFirstLayer(float * inputValues);
 	// TO DO void Backpropaghate();
 	~NeuralNet();
