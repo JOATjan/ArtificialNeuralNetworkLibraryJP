@@ -19,7 +19,7 @@ double MSE::ComputeTotalError(Layer * layer, double expVals[], int size)
 	return sum;
 }
 
-double MSE::ComputeVertexErrorActivationDerivative(Layer * layer, double expVals[], int size)
+void MSE::ComputeVertexErrorActivationDerivative(Layer * layer, float expVals[], int size)
 {
 	for (int i = 0; i < size; i++) {
 		Vertex * vertex = layer->GetVertices()[i];

@@ -3,7 +3,7 @@
 class ErrorFunction {
 public:
 	ErrorFunction();
-	virtual float ComputeError(Vertex * vertex) = 0;
+	virtual double ComputeVertexError(Vertex * vertex,double expectedValues) = 0;
 	~ErrorFunction();
 };
 
