@@ -8,7 +8,12 @@ void NeuralNet::AddLayer(Layer * layer) {
 	layers.push_back(layer);
 }
 
-void NeuralNet::FeedForward(float inputValues[]) {
+Layer * NeuralNet::GetLastLayer()
+{
+	return layers[layers.size()-1];
+}
+
+void NeuralNet::FeedForward(std::vector<float> & inputValues) {
 	WeightedSum weightedSumComputer;
 	SetFirstLayerValues(inputValues);
 	for (int i = 1; i < layers.size()-1;i++) {
@@ -22,7 +27,7 @@ void NeuralNet::FeedForward(float inputValues[]) {
 	}
 }
 
-void NeuralNet::SetFirstLayerValues(float * inputValues) {
+void NeuralNet::SetFirstLayerValues(std::vector<float> & inputValues) {
 	Layer * inputLayer = layers[0];
 	ActivationFunction * activationfunc = inputLayer->GetActivationFunction();
 	int inputsNumber = inputLayer->GetVertices().size();
@@ -35,14 +40,14 @@ void NeuralNet::SetFirstLayerValues(float * inputValues) {
 	}
 }
 
-void NeuralNet::Backprophagation(float expVals[], int size, float learningRate)
+void NeuralNet::Backprophagate(std::vector<float> & outputValues, int size, float learningRate)
 {
-	UpdateOutputLayerInputEdges(expVals, size, learningRate);
+	UpdateOutputLayerInputEdges(outputValues, size, learningRate);
 	UpdateHiddenLayersInputEdges();
 }
 
 
-void NeuralNet::UpdateOutputLayerInputEdges(float * expVals, int size, float learningRate)
+void NeuralNet::UpdateOutputLayerInputEdges(std::vector<float> & outputValues, int size, float learningRate)
 {
 	/*
 	1.Dla ostatniej warstwy :
@@ -53,7 +58,7 @@ void NeuralNet::UpdateOutputLayerInputEdges(float * expVals, int size, float lea
 	MSE MSErrorComputer;
 	Layer * outputLayer = layers.back();
 	ActivationFunction * activationfunc = outputLayer->GetActivationFunction();
-	MSErrorComputer.ComputeVertexErrorActivationDerivative(outputLayer, expVals, size);
+	MSErrorComputer.ComputeVertexErrorActivationDerivative(outputLayer, outputValues, size);
 	for (auto const & i : outputLayer->GetVertices()) {
 		float errActDeriv = i->GetErrorActivationDeriv();
 		float actInputDeriv = i->GetActivationInputDeriv();
