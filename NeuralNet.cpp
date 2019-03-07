@@ -8,6 +8,20 @@ void NeuralNet::AddLayer(Layer * layer) {
 	layers.push_back(layer);
 }
 
+void NeuralNet::ConnectLayers()
+{
+	auto gen = std::mt19937{ std::random_device{}() };
+	auto dist = std::normal_distribution<float>{ 0, 0.25 };
+	for (int i = 0; i < layers.size() - 1; i++) {
+		for (auto const & x : layers[i]->GetVertices()) {
+			for (auto const & j : layers[i + 1]->GetVertices()) {
+				float randomVal = dist(gen);
+				new Edge(x, j, randomVal);
+			}
+		}
+	}
+}
+
 Layer * NeuralNet::GetLastLayer()
 {
 	return layers[layers.size()-1];

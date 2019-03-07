@@ -5,13 +5,13 @@
 Coach::Coach() {
 }
 
-void Coach::Train(NeuralNet nn, std::vector<std::vector<float>> & trainingInput, std::vector<std::vector<float>> & trainingOutput, int epochsNumber, float learningRate,float errorMargin) {
+void Coach::Train(NeuralNet * nn, std::vector<std::vector<float>> & trainingInput, std::vector<std::vector<float>> & trainingOutput, int epochsNumber, float learningRate,float errorMargin) {
 	for (int i = 1; i <= epochsNumber; i++) {
 		float epochAccuracy = 0.0;
 		for (int j = 0; j < trainingInput.size(); j++) {
-			nn.FeedForward(trainingInput[j]);
-			epochAccuracy += EvaluateAccuracy(errorMargin,nn.GetLastLayer(), trainingOutput[j]);
-			nn.Backprophagate(trainingOutput[j], trainingOutput.size(), learningRate);
+			nn->FeedForward(trainingInput[j]);
+			epochAccuracy += EvaluateAccuracy(errorMargin,nn->GetLastLayer(), trainingOutput[j]);
+			nn->Backprophagate(trainingOutput[j], trainingOutput[j].size(), learningRate);
 		}
 		epochAccuracy = epochAccuracy / trainingInput.size();
 		std::cout << "Epoch nr: " << i << "epoch accuracy: "<< epochAccuracy << std::endl;
@@ -36,7 +36,6 @@ int Coach::EvaluateAccuracy(float errorMargin, Layer * outputLayer, std::vector<
 			return 1;
 		else
 			return 0;
-
 	}
 }
 

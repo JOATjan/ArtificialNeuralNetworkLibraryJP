@@ -2,7 +2,7 @@
 #include "Vertex.h"
 class Edge {
 public:
-	Edge(Vertex * In,Vertex * Out);
+	Edge(Vertex * In,Vertex * Out, float val);
 	void InitializeWeight(float val);
 	float GetWeight();
 	void SetWeight(float value);

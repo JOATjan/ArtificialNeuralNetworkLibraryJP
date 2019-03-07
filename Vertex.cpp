@@ -19,7 +19,7 @@ void Vertex::AddInputEdge(Edge * edge) {
 }
 
 void Vertex::AddOutputEdge(Edge * edge) {
-	InputEdges.push_back(edge);
+	OutputEdges.push_back(edge);
 }
 
 void Vertex::SetInput(float value) {

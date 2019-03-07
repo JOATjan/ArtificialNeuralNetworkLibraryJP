@@ -5,3 +5,4 @@ stdafx.h
 stdafx.cpp
 targetver.h
 **/x64
+*.txt

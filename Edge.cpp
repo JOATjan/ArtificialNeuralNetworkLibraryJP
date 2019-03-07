@@ -2,13 +2,14 @@
 #include "Edge.h"
 #include "Vertex.h"
 
-Edge::Edge(Vertex * In, Vertex * Out) {
+Edge::Edge(Vertex * In, Vertex * Out,float val) {
 	InputVertex = nullptr;
 	OutputVertex = nullptr;
 	InputVertex = In;
 	OutputVertex = Out;
 	In->AddOutputEdge(this);
 	Out->AddInputEdge(this);
+	InitializeWeight(val);
 }
 
 void Edge::InitializeWeight(float val) {

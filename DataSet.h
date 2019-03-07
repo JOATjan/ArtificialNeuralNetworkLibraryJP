@@ -1,15 +1,14 @@
 #pragma once
 #include <vector>
 #include <random>
-#include <time.h>
-
+#include <iostream>
 
 class DataSet
 {
 public:
 	DataSet();
 	void Split(std::vector<std::vector<float>> & InputSet, std::vector<std::vector<float>> & OutputSet, float trainingSetRatio);
-	float RandomSplitter();
+	void Print();
 	~DataSet();
 private:
 	bool firstTimeRand;
@@ -18,4 +17,3 @@ private:
 	std::vector<std::vector<float>> testOutputs;
 	std::vector<std::vector<float>> trainingOutputs;
 };
-
