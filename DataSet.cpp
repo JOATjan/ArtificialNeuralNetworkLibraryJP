@@ -35,6 +35,32 @@ void DataSet::Print() {
 		}
 		std::cout << std::endl;
 	}
+	for (int i = 0; i < trainingOutputs.size(); i++) {
+		for (int j = 0; j < trainingOutputs[i].size(); j++) {
+			std::cout << trainingOutputs[i][j];
+		}
+		std::cout << std::endl;
+	}
+}
+
+std::vector<std::vector<float>> DataSet::GetTestInputs()
+{
+	return testInputs;
+}
+
+std::vector<std::vector<float>> DataSet::GetTestOutputs()
+{
+	return testOutputs;
+}
+
+std::vector<std::vector<float>> DataSet::GetTrainInputs()
+{
+	return trainingInputs;
+}
+
+std::vector<std::vector<float>> DataSet::GetTrainOutputs()
+{
+	return trainingOutputs;
 }
 
 

@@ -11,7 +11,7 @@ void NeuralNet::AddLayer(Layer * layer) {
 void NeuralNet::ConnectLayers()
 {
 	auto gen = std::mt19937{ std::random_device{}() };
-	auto dist = std::normal_distribution<float>{ 0, 0.25 };
+	std::uniform_real_distribution<> dist(-1, 1);
 	for (int i = 0; i < layers.size() - 1; i++) {
 		for (auto const & x : layers[i]->GetVertices()) {
 			for (auto const & j : layers[i + 1]->GetVertices()) {
@@ -30,7 +30,7 @@ Layer * NeuralNet::GetLastLayer()
 void NeuralNet::FeedForward(std::vector<float> & inputValues) {
 	WeightedSum weightedSumComputer;
 	SetFirstLayerValues(inputValues);
-	for (int i = 1; i < layers.size()-1;i++) {
+	for (int i = 1; i < layers.size();i++) {
 		ActivationFunction * activationfunc = layers[i]->GetActivationFunction();
 		for (auto const & j : layers[i]->GetVertices()) {
 			float input = weightedSumComputer.ComputeInput(j);
@@ -74,13 +74,16 @@ void NeuralNet::UpdateOutputLayerInputEdges(std::vector<float> & outputValues, i
 	ActivationFunction * activationfunc = outputLayer->GetActivationFunction();
 	MSErrorComputer.ComputeVertexErrorActivationDerivative(outputLayer, outputValues, size);
 	for (auto const & i : outputLayer->GetVertices()) {
+		activationfunc->ComputeActivationInputDeriv(i);
 		float errActDeriv = i->GetErrorActivationDeriv();
 		float actInputDeriv = i->GetActivationInputDeriv();
 		float chainVals = learningRate * errActDeriv * actInputDeriv;
 		for (auto const & j : i->GetInputEdges()) {
 			float edgeInput = j->GetInputVertex()->GetActivation();
-			float oldWeigth = j->GetWeight();
-			float newWeigth = oldWeigth - chainVals * edgeInput;
+			float oldWeight = j->GetWeight();
+			j->SetOldWeight(oldWeight);
+			float newWeight = oldWeight - chainVals * edgeInput;
+			j->SetWeight(newWeight);
 		}
 	}
 }
@@ -108,13 +111,15 @@ void NeuralNet::UpdateHiddenLayersInputEdges()
 			for (auto const & k : j->GetOutputEdges()) {
 				float errActDeriv = k->GetOutputVertex()->GetErrorActivationDeriv();
 				float actInputDeriv = k->GetOutputVertex()->GetActivationInputDeriv();
-				sumETotal += errActDeriv * actInputDeriv * k->GetWeight();
+				sumETotal += errActDeriv * actInputDeriv * k->GetOldWeight();
 			}
 			for (auto const & k : j->GetInputEdges()) {
 				float actInputDeriv = j->GetActivationInputDeriv();
 				float edgeInput = k->GetInputVertex()->GetActivation();
-				float oldWeigth = k->GetWeight();
-				float newWeigth = oldWeigth - sumETotal * edgeInput * actInputDeriv;
+				float oldWeight = k->GetWeight();
+				k->SetOldWeight(oldWeight);
+				float newWeight = oldWeight - sumETotal * edgeInput * actInputDeriv;
+				k->SetWeight(newWeight);
 			}
 			j->SetErrorActivationDeriv(sumETotal);
 		}

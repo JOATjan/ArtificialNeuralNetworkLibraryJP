@@ -24,6 +24,16 @@ void Edge::SetWeight(float value) {
 	weight = value;
 }
 
+float Edge::GetOldWeight()
+{
+	return oldWeight;
+}
+
+void Edge::SetOldWeight(float value)
+{
+	oldWeight = value;
+}
+
 Vertex* Edge::GetInputVertex() {
 	return InputVertex;
 }

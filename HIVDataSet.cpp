@@ -33,7 +33,7 @@ void HIVDataSet::LoadData()
 			if (output == '1')
 				singleOutput.push_back(1);
 			else {
-				singleOutput.push_back(-1);
+				singleOutput.push_back(0);
 				file.get(output);
 			}
 			file.get(separator);
