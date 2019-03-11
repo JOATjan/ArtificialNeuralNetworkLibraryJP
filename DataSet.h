@@ -15,9 +15,8 @@ public:
 	std::vector<std::vector<float>> GetTrainOutputs();
 	~DataSet();
 private:
-	bool firstTimeRand;
-	std::vector<std::vector<float>> testInputs;
 	std::vector<std::vector<float>> trainingInputs;
-	std::vector<std::vector<float>> testOutputs;
 	std::vector<std::vector<float>> trainingOutputs;
+	std::vector<std::vector<float>> testOutputs;
+	std::vector<std::vector<float>> testInputs;
 };

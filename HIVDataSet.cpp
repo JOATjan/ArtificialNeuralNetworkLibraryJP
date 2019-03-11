@@ -6,14 +6,6 @@ HIVDataSet::HIVDataSet(float dataSetSplitRatio)
 	splitRatio = dataSetSplitRatio;
 }
 
-float HIVDataSet::Normalize(char letter)
-{
-	float value = (int)letter;
-	float minValue = 65.0f;
-	float maxValue = 89.0f;
-	return (value - minValue)/(maxValue-minValue);
-}
-
 void HIVDataSet::LoadData()
 {
 	std::vector<float> singleInput;
@@ -46,11 +38,16 @@ void HIVDataSet::LoadData()
 	Split(inputs, outputs, splitRatio);
 	if (!file.eof() && file.fail())
 		std::cout << "error \n" << std::endl;
-
 	file.close();
 }
 
-
+float HIVDataSet::Normalize(char letter)
+{
+	float value = (int)letter;
+	float minValue = 65.0f;
+	float maxValue = 89.0f;
+	return (value - minValue)/(maxValue-minValue);
+}
 
 HIVDataSet::~HIVDataSet()
 {

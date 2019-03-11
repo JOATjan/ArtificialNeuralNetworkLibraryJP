@@ -1,5 +1,6 @@
 #pragma once
 #include "Vertex.h"
+
 class ErrorFunction {
 public:
 	ErrorFunction();

@@ -4,7 +4,6 @@
 Layer::Layer(int verNum, ActivationFunction* activationType) {
 	AddVertices(verNum);
 	activationFunction = activationType;
-
 }
 
 void Layer::AddVertices(int verNum) {
@@ -23,4 +22,11 @@ std::vector<Vertex*> Layer::GetVertices() {
 }
 
 Layer::~Layer() {
+	for (auto const & i : layerVertices) {
+		for (auto const & j : i->GetOutputEdges()) {
+			delete j;
+		}
+		delete i;
+	}
+	layerVertices.clear();
 }

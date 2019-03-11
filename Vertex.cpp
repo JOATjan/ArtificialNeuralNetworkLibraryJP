@@ -6,20 +6,19 @@ Vertex::Vertex() {
 }
 
 std::list<Edge*> Vertex::GetInputEdges() {
-	return InputEdges;
+	return inputEdges;
 }
 
-
 std::list<Edge*> Vertex::GetOutputEdges() {
-return OutputEdges;
+return outputEdges;
 }
 
 void Vertex::AddInputEdge(Edge * edge) {
-	InputEdges.push_back(edge);
+	inputEdges.push_back(edge);
 }
 
 void Vertex::AddOutputEdge(Edge * edge) {
-	OutputEdges.push_back(edge);
+	outputEdges.push_back(edge);
 }
 
 void Vertex::SetInput(float value) {
@@ -30,23 +29,19 @@ void Vertex::SetActivation(float value) {
 	Activation = value;
 }
 
-void Vertex::SetErrorActivationDeriv(float value)
-{
+void Vertex::SetErrorActivationDeriv(float value) {
 	ErrorActivationDeriv = value;
 }
 
-void Vertex::SetActivationInputDeriv(float value)
-{
+void Vertex::SetActivationInputDeriv(float value) {
 	ActivationInputDeriv = value;
 }
 
-float Vertex::GetErrorActivationDeriv()
-{
+float Vertex::GetErrorActivationDeriv() {
 	return ErrorActivationDeriv;
 }
 
-float Vertex::GetActivationInputDeriv()
-{
+float Vertex::GetActivationInputDeriv() {
 	return ActivationInputDeriv;
 }
 
@@ -59,4 +54,6 @@ float Vertex::GetActivation() {
 }
 
 Vertex::~Vertex() {
+	outputEdges.clear();
+	inputEdges.clear();
 }

@@ -3,8 +3,6 @@
 #include "Vertex.h"
 
 Edge::Edge(Vertex * In, Vertex * Out,float val) {
-	InputVertex = nullptr;
-	OutputVertex = nullptr;
 	InputVertex = In;
 	OutputVertex = Out;
 	In->AddOutputEdge(this);
@@ -41,7 +39,6 @@ Vertex* Edge::GetInputVertex() {
 Vertex* Edge::GetOutputVertex() {
 	return OutputVertex;
 }
-
 
 Edge::~Edge() {
 }

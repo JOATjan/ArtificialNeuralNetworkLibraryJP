@@ -8,8 +8,8 @@ public:
 	HIVDataSet(float DataSetSplitRatio);
 	float Normalize(char letter);
 	void LoadData();
-private:
-	float splitRatio;
 	~HIVDataSet();
+private:
+	float splitRatio = 0.0f;
 };
 

@@ -5,10 +5,6 @@
 MSE::MSE() {
 }
 
-double MSE::ComputeVertexError(Vertex * vertex, double expectedValue) {
-	return 1.0/2 * pow(expectedValue - vertex->GetActivation(),2);
-}
-
 double MSE::ComputeTotalError(Layer * layer, std::vector<float> & outputValues, int size)
 {
 	double sum = 0.0;
@@ -19,6 +15,10 @@ double MSE::ComputeTotalError(Layer * layer, std::vector<float> & outputValues, 
 	return sum;
 }
 
+double MSE::ComputeVertexError(Vertex * vertex, double expectedValue) {
+	return 1.0 / 2 * pow(expectedValue - vertex->GetActivation(), 2);
+}
+
 void MSE::ComputeVertexErrorActivationDerivative(Layer * layer, std::vector<float> & outputValues, int size)
 {
 	for (int i = 0; i < size; i++) {
@@ -27,7 +27,6 @@ void MSE::ComputeVertexErrorActivationDerivative(Layer * layer, std::vector<floa
 		vertex->SetErrorActivationDeriv(derivative);
 	}
 }
-
 
 MSE::~MSE() {
 }

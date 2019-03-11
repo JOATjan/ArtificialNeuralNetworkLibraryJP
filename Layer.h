@@ -2,6 +2,7 @@
 #include <vector>
 #include "Vertex.h"
 #include "ActivationFunction.h"
+
 class Layer {
 public:
 	Layer(int verNum, ActivationFunction * activationType);
@@ -12,6 +13,6 @@ public:
 protected:
 	std::vector<Vertex*> layerVertices;
 	float eror = 0.0;
-	ActivationFunction* activationFunction;
+	ActivationFunction* activationFunction = nullptr;
 };
 

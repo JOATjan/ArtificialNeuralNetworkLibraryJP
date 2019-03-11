@@ -1,12 +1,10 @@
 #include "stdafx.h"
 #include "DataSet.h"
 
-
 DataSet::DataSet() {
 }
 
 void DataSet::Split(std::vector<std::vector<float>> & InputSet, std::vector<std::vector<float>> & OutputSet, float trainingSetRatio) {
-	// TO DO: check if input and output sets are the same size. 
 	auto gen = std::mt19937{ std::random_device {}() };
 	std::uniform_real_distribution<> dist(0.0,1.0);
 	for (int i = 0; i < InputSet.size(); i++) {
@@ -18,7 +16,6 @@ void DataSet::Split(std::vector<std::vector<float>> & InputSet, std::vector<std:
 			trainingInputs.push_back(InputSet[i]);
 			trainingOutputs.push_back(OutputSet[i]);
 		}
-	
 	}
 }
 
@@ -62,7 +59,6 @@ std::vector<std::vector<float>> DataSet::GetTrainOutputs()
 {
 	return trainingOutputs;
 }
-
 
 DataSet::~DataSet() {
 }

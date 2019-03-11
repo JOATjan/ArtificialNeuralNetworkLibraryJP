@@ -21,8 +21,8 @@ public:
 
 	~Vertex();
 private:
-	std::list<Edge*> InputEdges;
-	std::list<Edge*> OutputEdges;
+	std::list<Edge*> inputEdges;
+	std::list<Edge*> outputEdges;
 	float ErrorActivationDeriv = 0.0f;
 	float ActivationInputDeriv = 0.0f;
 	float Input = 0.0f;
