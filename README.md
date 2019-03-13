@@ -15,8 +15,8 @@ If anyone wants to see the project files to compile the library, please contact 
 
 ## Usage of the library
 
-#Initializing Neural Net components:
-- First you will need Net instance and ActivationFunctions you'd like to use in training process.
+# Initializing Neural Net components:
+- First, you will need a net instance and activation functions that you'd like to use in the training process.
 
 ```cpp
   	NeuralNet *Net = new NeuralNet;
@@ -24,7 +24,7 @@ If anyone wants to see the project files to compile the library, please contact 
 	Sigmoid *sigmoid = new Sigmoid;
 ```
 
-- Next, you want to fill Net with some layers: in this case, initialize 3 layers, with 8,6,1 neurons, add them to the Net and connect them.
+- Next, you want to fill our net with some layers: in this case, initialize 3 layers, with 8,6 and 1 neurons, add them to the Net, and connect them.
 
 ```cpp
   	Layer *InputLayer = new Layer(8,reLu);
@@ -36,7 +36,7 @@ If anyone wants to see the project files to compile the library, please contact 
 	Net->ConnectLayers();
 ```
 
-- Load data to our data set (in this case I have prepared class that loads the data from HIV protease cleavage dataset) and initialize our coach: he will train the network. Then we simply train the net with coach.Train(). The last three parameters are: epochs number, learning rate and net's error margin.
+- Load the data to our data set (in this case I have prepared class that loads the data from HIV protease cleavage data set) and initialize our coach: he will train the network. Then we simply train the net with coach.Train(). The last three parameters are: number of epochs, learning rate and net's error margin.
 
 ```cpp
   	HIVDataSet *dataSet = new HIVDataSet(0.8);
