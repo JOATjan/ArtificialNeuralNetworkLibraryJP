@@ -19,7 +19,7 @@ If anyone wants to see the project files to compile the library, please contact 
 - First you will need Net instance and ActivationFunctions you'd like to use in training process.
 
 ```cpp
-  NeuralNet *Net = new NeuralNet;
+  	NeuralNet *Net = new NeuralNet;
 	ReLu *reLu = new ReLu;
 	Sigmoid *sigmoid = new Sigmoid;
 ```
@@ -27,7 +27,7 @@ If anyone wants to see the project files to compile the library, please contact 
 - Next, you want to fill Net with some layers: in this case, initialize 3 layers, with 8,6,1 neurons, add them to the Net and connect them.
 
 ```cpp
-  Layer *InputLayer = new Layer(8,reLu);
+  	Layer *InputLayer = new Layer(8,reLu);
 	Layer *HiddenLayer = new Layer(6, sigmoid);
 	Layer *OutputLayer = new Layer(1, sigmoid);
 	Net->AddLayer(InputLayer);
@@ -39,7 +39,7 @@ If anyone wants to see the project files to compile the library, please contact 
 - Load data to our data set (in this case I have prepared class that loads the data from HIV protease cleavage dataset) and initialize our coach: he will train the network. Then we simply train the net with coach.Train(). The last three parameters are: epochs number, learning rate and net's error margin.
 
 ```cpp
-  HIVDataSet *dataSet = new HIVDataSet(0.8);
+  	HIVDataSet *dataSet = new HIVDataSet(0.8);
 	dataSet->LoadData();
 	Coach coach;
 	std::vector<std::vector<float>> inputs = dataSet->GetTrainingInputs();
