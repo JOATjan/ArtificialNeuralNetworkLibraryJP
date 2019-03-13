@@ -1,5 +1,6 @@
 #pragma once
-#include "Vertex.h"
+#include "../../Structure/Vertex.h"
+#include "../../Structure/Edge.h"
 class WeightedSum {
 public:
 	WeightedSum();

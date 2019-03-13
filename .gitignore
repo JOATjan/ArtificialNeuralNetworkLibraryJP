@@ -1,7 +1,7 @@
 *.vcxproj*
 **/.vs
 *.sln
-stdafx.h
+*stdafx.h
 stdafx.cpp
 targetver.h
 **/x64

@@ -1,5 +1,5 @@
 #pragma once
-#include "Vertex.h"
+#include "../../Structure/Vertex.h"
 
 class ActivationFunction {
 public:

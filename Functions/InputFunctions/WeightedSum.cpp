@@ -1,7 +1,5 @@
 #include "stdafx.h"
 #include "WeightedSum.h"
-#include "Vertex.h"
-#include "Edge.h"
 
 WeightedSum::WeightedSum() {
 }

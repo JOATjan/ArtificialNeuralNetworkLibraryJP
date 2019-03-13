@@ -1,9 +1,9 @@
 #pragma once
 #include <vector>
-#include "Layer.h"
-#include "WeightedSum.h"
-#include "MSE.h"
-#include "Edge.h"
+#include "../Structure/Layer.h"
+#include "../Functions/InputFunctions/WeightedSum.h"
+#include "../Functions/ErrorFunctions/MSE.h"
+#include "../Structure/Edge.h"
 #include <random>
 #include <time.h>
 

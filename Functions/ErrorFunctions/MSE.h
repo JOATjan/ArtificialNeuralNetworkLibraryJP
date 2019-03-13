@@ -1,6 +1,6 @@
 #pragma once
 #include "ErrorFunction.h"
-#include "Layer.h"
+#include "../../Structure/Layer.h"
 #include <vector>
 
 class MSE : public ErrorFunction {

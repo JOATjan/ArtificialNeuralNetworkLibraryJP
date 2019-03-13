@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "Vertex.h"
-#include "ActivationFunction.h"
+#include "../Functions/ActivationFunctions/ActivationFunction.h"
 
 class Layer {
 public:

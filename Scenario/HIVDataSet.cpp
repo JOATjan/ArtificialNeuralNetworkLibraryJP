@@ -13,7 +13,7 @@ void HIVDataSet::LoadData()
 	std::vector<std::vector<float>> inputs;
 	std::vector<std::vector<float>> outputs;
 	char inputLetter, separator, output;
-	std::fstream file("1625Data.txt", std::fstream::in);
+	std::fstream file("Scenario\\1625Data.txt", std::fstream::in);
 	if (file.is_open()) {
 		while (file.good()) {
 			for (int i = 0; i < 8; i++) {
