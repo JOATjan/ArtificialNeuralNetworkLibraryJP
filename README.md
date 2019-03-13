@@ -42,8 +42,6 @@ If anyone wants to see the project files to compile the library, please contact 
   	HIVDataSet *dataSet = new HIVDataSet(0.8);
 	dataSet->LoadData();
 	Coach coach;
-	std::vector<std::vector<float>> inputs = dataSet->GetTrainingInputs();
-	std::vector<std::vector<float>> outputs = dataSet->GetTrainingOutputs();
 	coach.Train(Net, dataSet->GetTrainingInputs(), dataSet->GetTrainingOutputs(), 1000, 0.06, 0.4);
 ```
 
