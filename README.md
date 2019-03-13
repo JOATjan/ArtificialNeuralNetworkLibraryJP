@@ -15,7 +15,6 @@ If anyone wants to see the project files to compile the library, please contact 
 
 ## Usage of the library
 
-# Initializing Neural Net components:
 - First, you will need a net instance and activation functions that you'd like to use in the training process.
 
 ```cpp
